@@ -36,7 +36,7 @@
     "add_tax_payer":"Add Tax Payer",
     "bio_info" : "Bio Information",
     "dashboard" : "Dashboard",
-    "list" : "List",
+    "list" : "Payers List",
     "add" : "Add",
     "invoice" : "Invoice",
     "prepare" : "Prepare",
@@ -53,13 +53,17 @@
     "back" : "Back",
     "all_fields_marked" : "All fields Marked",
     "is_mandatory" : "is Madatory.",
-
-
-
-    "Remember me" : "Remember me",
+   "remember_me" : "Remember Me",
     "documentation" : "Documentation",
-    "password reset" : "Password Reset",
-    "Remeber? Login" : "Remeber? Login"
+    "password_reset" : "Password Reset",
+    "remeber_login" : "Remember Password? Login",
+    "confirm" : "Confirm",
+    "logout" : "Logout",
+    "email" : "Email",
+    "new_payer" : "New Payer",
+    "new_account" : "Add Account",
+    "delete_account" : "Delete Account"
+
 
 
 }

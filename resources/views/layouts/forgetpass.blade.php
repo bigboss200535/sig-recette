@@ -15,7 +15,7 @@
                         <div class="w-lg-500px p-10 p-lg-15 mx-auto">
                             <form class="form w-100" novalidate="novalidate" id="form_submit" action="#">
                                 <div class="text-center mb-10">
-                                    <h1 class="text-success mb-3">Password Reste</h1>
+                                    <h1 class="text-success mb-3">Password Reset</h1>
                                 </div>
                                 <div class="fv-row mb-10">
                                     <div class="d-flex flex-stack mb-2">

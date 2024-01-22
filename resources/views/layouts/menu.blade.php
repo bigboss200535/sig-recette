@@ -4,7 +4,7 @@
                            <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
                                
 							   <div class="menu-item">
-									<a class="menu-link" href="{{ url('/dashboard') }}" title="Build your layout and export HTML for server side integration" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+									<a class="menu-link" href="{{ url('/dashboard') }}"  data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -41,13 +41,13 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/AddPayer">
+											<a class="menu-link" href="/RegisterPayer">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-												<span class="menu-title">{{ __('add') }}</span>
+												<span class="menu-title">{{ __('new_account') }}</span>
 											</a>
-											<a class="menu-link" href="/AddPayer">
+											<a class="menu-link" href="{{ url('/Payers') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>

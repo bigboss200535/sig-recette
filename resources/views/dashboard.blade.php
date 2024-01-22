@@ -6,8 +6,8 @@
                             <!--begin::Container-->
                             <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
                                 <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                                    <h1 class="d-flex align-items-center text-secondary fw-bolder fs-3 my-1 text-dark"><span class="h-20px border-gray-200 border-start ms-3 mx-2"></span><a href="#" class="text-dark" id="formattedTime">10:01am</a>
-                                        
+                                    <h1 class="d-flex align-items-center text-secondary fw-bolder fs-3 my-1 text-dark"><span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+                                        <a href="#" class="text-dark" id="formattedTime"></a>
                                     </h1>
                                 </div>
                                 <h1 class="pull-right">MUNICIPAL 
@@ -26,7 +26,7 @@
                                                     <h1 class="fw-bold text-gray-800 text-center lh-lg">{{ __('hello') }},
                                                     <br />
                                                     <span class="fw-boldest"><?php echo 'Administrator' ;?></span></h1>
-                                                    <div class="flex-grow-1 bgi-no-repeat bgi-size-contain bgi-position-x-center card-rounded-bottom h-200px mh-200px my-5 my-lg-12" style="background-image:url("{{ asset('media/svg/illustrations/easy/4.svg') }}""></div>
+                                                    <div class="flex-grow-1 bgi-no-repeat bgi-size-contain bgi-position-x-center card-rounded-bottom h-200px mh-200px my-5 my-lg-12" style="background-image:url('{{ asset('media/svg/illustrations/easy/4.svg') }}');"></div>
                                                 </div>
                                                 <div class="text-center">
                                                     <a class="btn btn-sm btn-primary me-2" data-bs-target="#kt_modal_view_users" data-bs-toggle="modal">{{ __('make_payment') }}</a>
@@ -93,7 +93,7 @@
                                                             <div class="d-flex align-items-center mb-2">
                                                                 <span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">259,786</span>
                                                             </div>
-                                                            <span class="fs-6 fw-bold text-gray-400">Total Shipments</span>
+                                                            <span class="fs-6 fw-bold text-gray-400">Total Revenue this month</span>
                                                         </div>
                                                         <div id="kt_card_widget_9_chart" class="min-h-auto" style="height: 125px"></div>
                                                     </div>
@@ -102,10 +102,10 @@
                                                     <div class="card-header pt-5">
                                                         <div class="card-title d-flex flex-column">
                                                             <span class="fs-2hx fw-bolder text-dark me-2 lh-1">604</span>
-                                                            <span class="text-gray-400 pt-1 fw-bold fs-6">New Customers This Month</span>
+                                                            <span class="text-gray-400 pt-1 fw-bold fs-6">New Tax Payers This Month</span>
                                                         </div>
                                                     </div>
-                                                    <div class="card-body d-flex flex-column justify-content-end pe-0">
+                                                    <!-- <div class="card-body d-flex flex-column justify-content-end pe-0">
                                                         <span class="fs-6 fw-boldest text-gray-800 d-block mb-2">Today’s Heroes</span>
                                                         <div class="symbol-group symbol-hover flex-nowrap">
                                                             <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
@@ -130,7 +130,7 @@
                                                                 <span class="symbol-label bg-light text-gray-400 fs-8 fw-bolder">+42</span>
                                                             </a>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>

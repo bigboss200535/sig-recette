@@ -20,12 +20,12 @@
 							<form class="form w-100" novalidate="novalidate" id="form_submit" method="POST" action="{{ route('password.email') }}">
                                 @csrf
 								<div class="text-center mb-10">
-									<h1 class="text-success mb-3">{{ __('password reset') }}</h1>
+									<h1 class="text-success mb-3">{{ __('password_reset') }}</h1>
 								</div>
                                 <div class="fv-row mb-10">
                                     <div class="d-flex flex-stack mb-2">
-                                        <label class="form-label fw-bolder text-dark fs-6 mb-0">{{ __('Email') }}</label>
-										<a href="{{ route('login') }}" class="link-success fs-6 fw-bolder">{{ __('Remeber? Login') }}</a>
+                                        <label class="form-label fw-bolder text-dark fs-6 mb-0">{{ __('email') }}</label>
+										<a href="{{ route('login') }}" class="link-success fs-6 fw-bolder">{{ __('remeber_login') }}</a>
                                     </div>
                                     <input class="form-control form-control-lg form-control-solid" type="email" name="email" value="admin@admin.com" autocomplete="off" placeholder="{{ __('Email') }}" />
                                     
@@ -45,7 +45,7 @@
 					</div>
 					<div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
 						<div class="d-flex flex-center fw-bold fs-6">
-							<a class="text-muted text-hover-primary px-2">&copy;<?php echo '2023';?></span> <?php echo 'Sig-Recettes'?>.</a>
+							<a class="text-muted text-hover-primary px-2">&copy;<?php echo '2023';?></span> {{ config('app.name') }}.</a>
 						</div>
 					</div>
 				</div>
@@ -101,21 +101,7 @@
                     })
                 }
             });
-            // ---------------------------------
-            // progressContainer = document.createElement("div");
-            // progressLabel = document.createElement("span");
-            // progressBar = document.createElement("span");
-
-            // // Set attributes and classes for progress elements
-            // progressContainer.classList.add("indicator-progress");
-            // progressLabel.classList.add("indicator-label");
-            // progressBar.classList.add("spinner-border", "spinner-border-sm", "align-middle", "ms-2");
-
-            // // Append progress elements to the button
-            // progressContainer.appendChild(progressLabel);
-            // progressContainer.appendChild(progressBar);
-            // e.appendChild(progressContainer);
-            // ---------------------------------
+            
 
             e.addEventListener("click", (function (event) {
                 //event.preventDefault();
@@ -123,13 +109,7 @@
                     if ("Valid" == validationResult) {
                         e.setAttribute("data-kt-indicator", "on");
                         e.disabled = true;
-// -----------------------------
-                        // // Show progress elements
-                        // progressLabel.innerHTML = "Please wait...";
-                        // progressBar.style.display = "inline-block";
-// --------------------------------------
-                        // Perform login using Fetch
-                        
+/
                     }
                 }));
             }));

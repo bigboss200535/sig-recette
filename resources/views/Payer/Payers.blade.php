@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> {{ config('app.name') }} | Tax Payer</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
+		<link href="{{ asset('plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
+		<link href="{{ asset('plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
+		<link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
+		<link rel="../shortcut icon" href="{{ asset('media/logo.png') }}"/>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.11.7/css/dataTables.bootstrap4.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/1.11.7/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.11.7/js/dataTables.bootstrap4.min.js"></script>
+	</head>
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				    @include('inc.aside')
+
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+
+					  @include('inc.topmenu')
+
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Toolbar-->
+						<div class="toolbar" id="kt_toolbar">
+							<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+									<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">{{ __('tax_payer') }}</h1>
+									<span class="h-20px border-gray-300 border-start mx-4"></span>
+									<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+										<li class="breadcrumb-item text-muted">
+											<a href="/Home" class="text-muted text-hover-primary">{{ __('home') }}</a>
+										</li>
+										<li class="breadcrumb-item">
+											<span class="bullet bg-gray-300 w-5px h-2px"></span>
+										</li>
+										<li class="breadcrumb-item text-dark">{{ __('tax_payer') }}</li>
+									</ul>
+								</div>
+								<div class="d-flex align-items-center gap-2 gap-lg-3">
+									<div class="m-0">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<div id="kt_content_container" class="container-xxl">
+								<div class="card">
+									<div class="card-header border-0 pt-6">
+										<div class="card-title">
+											<div class="d-flex align-items-center position-relative my-1">
+												<span class="svg-icon svg-icon-1 position-absolute ms-6">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+														<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
+													</svg>
+												</span>
+												<input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="{{ __('search_payer') }}"/>
+											</div>
+										</div>
+										<div class="card-toolbar">
+											<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+												<div class="w-150px me-3">
+													<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="{{ __('all') }}" data-kt-ecommerce-order-filter="status">
+														<option></option>
+														<!-- <option value="{{ __('all') }}">{{ __('all') }}</option> -->
+														<option value="{{ __('active') }}">{{ __('active') }}</option>
+														<option value="{{ __('inactive') }}">{{ __('inactive') }}</option>
+													</select>
+												</div>
+												<a href="{{ url('/RegisterPayer') }}">
+												    <button class="btn btn-success">{{ __('add_payer') }}</button>
+												</a>
+												<!-- <button type="button" class="btn btn-success" >{{ __('add_payer') }}</button> -->
+											</div>
+											<div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
+												<div class="fw-bolder me-5">
+												<span class="me-2" data-kt-customer-table-select="selected_count"></span>{{ __('selected') }}</div>
+												<button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected" disabled>{{ __('delete_selected') }}</button>
+											</div>
+										</div>
+									</div>
+									<div class="card-body pt-0">
+										<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+											<thead>
+												<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+													<th class="w-10px pe-2" disable>
+														<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+															<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" disabled/>
+														</div>
+													</th>
+													<th class="min-w-125px">{{ __('name') }}</th>
+													<th class="min-w-125px">{{ __('gender') }}</th>
+													<th class="min-w-125px">{{ __('status') }}</th>
+													<th class="min-w-125px">{{ __('telephone') }}</th>
+													<th class="min-w-125px">{{ __('national_id') }}</th>
+													<th class="min-w-125px">{{ __('created_date') }}</th>
+													<th class="text-end min-w-70px">{{ __('action') }}</th>
+												</tr>
+											</thead>
+											<tbody class="fw-bold text-gray-600">
+												@foreach($payers as $payer)
+												<tr>
+													<td>
+														<div class="form-check form-check-sm form-check-custom form-check-solid">
+															<input class="form-check-input" type="checkbox" value="1" />
+														</div>
+													</td>
+													<td>
+														{{ strtoupper($payer->Fullname) }}
+													</td>
+													<td>{{ $payer->GenderName }}</td>
+													<td>
+														@if ($payer->Status === 'ACTIVE')
+                											<div class="badge badge-light-success">{{ __('active') }}</div>
+            											@else
+                											<div class="badge badge-light-danger">{{ __('inactive') }}</div>
+														@endif
+													</td>
+													<td>
+														@if ($payer->Telephone1)
+                											{{ $payer->Telephone1 }}
+            											@else
+                											-
+														@endif
+													</td>
+													<td> 
+													@if ($payer->NationalIdNumber)
+                										{{ $payer->NationalIdNumber }}
+            										@else
+                										-
+            										@endif
+													</td>
+													<td>{{ \Carbon\Carbon::parse($payer->AddedDate)->format('Y-m-d') }}</td>
+													<td class="text-end">
+														<a href="#" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">{{ __('action') }}
+														</a>
+														<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-warning fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+															<div class="menu-item px-3">
+																<a href="/PayerDetails" class="menu-link px-3" data-payer-id="{{ $payer->TaxPayerId }}">{{ __('view') }}</a>
+															</div>
+															<div class="menu-item px-3">
+																<a href="DeletePayer" class="menu-link px-3" data-kt-customer-table-filter="delete_row" data-payer-id="{{ $payer->TaxPayerId }}">{{ __('delete') }}</a>
+															</div>
+														</div>
+													</td>
+												</tr>	
+											@endforeach
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					@include('inc.footercontent')
+				</div>
+			</div>
+		</div>
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<span class="svg-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black"/>
+				</svg>
+			</span>
+		</div>
+			@include('inc.modals.taxpayer')
+		<script src="{{ asset('plugins/global/plugins.bundle.js') }}"></script>
+		<script src="{{ asset('js/scripts.bundle.js') }}"></script>
+		<script src="{{ asset('plugins/custom/datatables/datatables.bundle.js') }}"></script>
+		<script src="{{ asset('js/custom/apps/ecommerce/customers/listing/listing.js') }}"></script>
+		<script src="{{ asset('js/custom/apps/ecommerce/customers/listing/add.js') }}"></script>
+		<script src="{{ asset('js/custom/apps/ecommerce/customers/listing/export.js') }}"></script>
+		<script src="{{ asset('js/widgets.bundle.js') }}"></script>
+		<script src="{{ asset('js/custom/widgets.js') }}"></script>
+		<script src="{{ asset('js/custom/apps/chat/chat.js') }}"></script>
+		<script src="{{ asset('js/custom/utilities/modals/upgrade-plan.js') }}"></script>
+		<script src="{{ asset('js/custom/utilities/modals/create-app.js') }}"></script>
+		<script src="{{ asset('js/custom/utilities/modals/users-search.js') }}"></script>
+		<script src="{{ asset('js/custom/utilities/modals/create-account.js') }}"></script>
+		<!-- <script src="{{ asset('js/custom/utilities/modals/tax_register.js') }}"></script> -->
+
+	</body>
+	 <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            $('#kt_customers_table').DataTable();
+        });
+    </script>
+</html>

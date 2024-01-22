@@ -704,8 +704,9 @@
 												<a href="#" class="menu-link px-5">
 													<span class="menu-title position-relative">Language
 													
-													<!-- <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-													<img class="w-15px h-15px rounded-1 ms-2" src="{{ asset('media/flags/united-states.svg') }}" alt="" /></span> -->
+													<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
+													<img class="w-15px h-15px rounded-1 ms-2" src="{{ asset('media/flags/united-states.svg') }}" alt="" /></span>
+
 													@if(Session::get('locale') == 'en')
     													<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
     													<img class="w-15px h-15px rounded-1 ms-2" src="{{ asset('media/flags/united-states.svg') }}" alt=""/></span>
@@ -734,15 +735,14 @@
 											</div>
 											<div class="separator my-2"></div>
 											<div class="menu-item px-5">
-                                                <form method="POST" action="{{ route('logout') }}">
-                                                    @csrf
-
-                                                    <x-dropdown-link :href="route('logout')"
-                                                            onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
-                                                        {{ __('Log Out') }}
-                                                    </x-dropdown-link>
-                                                </form>
+                             <form method="POST" action="{{ route('logout') }}">
+                                   @csrf
+                                   <x-dropdown-link :href="route('logout')"
+                                           onclick="event.preventDefault();
+                                           this.closest('form').submit();">
+                                            {{ __('logout') }}
+                                    </x-dropdown-link>
+                             </form>
 											</div>
 										</div>
 									</div>

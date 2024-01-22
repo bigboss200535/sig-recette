@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-
         <title>{{ config('app.name') }} | Login</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
         <link href="{{ asset('plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
@@ -29,28 +28,25 @@
                 </div>
                 
                 <x-auth-session-status class="mb-4" :status="session('status')" />
-    
                 <div class="d-flex flex-column flex-lg-row-fluid py-10">
                     <div class="d-flex flex-center flex-column flex-column-fluid">
                         <div class="w-lg-500px p-10 p-lg-15 mx-auto">
                             <form class="form w-100" novalidate="novalidate" id="form_submit" action="{{ route('login') }}" method="POST">
                             @csrf    
                                 <div class="text-center mb-10">
-                                    <!-- <h1 class="text-successs mb-3"><?php //echo $lang['sign_in'];?></h1> -->
                                      <h1 class="text-successs mb-3"> {{ __('signin') }}</h1>
                                 </div>
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" style="color: red;"/>
                                 <div class="fv-row mb-10">
-                                    <label class="form-label fs-6 fw-bolder text-dark">{{ __('Email') }}</label>
-                                    <input maxlength="30" class="form-control form-control-lg form-control-solid" type="email" name="email" value="admin@admin.com" autocomplete="off" placeholder="{{ __('Email') }}" />
-                                    
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <label class="form-label fs-6 fw-bolder text-dark">{{ __('email') }}</label>
+                                    <input maxlength="30" class="form-control form-control-lg form-control-solid" type="email" name="email" autocomplete="off" placeholder="{{ __('Email') }}" />
                                 </div>
                                 <div class="fv-row mb-10">
                                     <div class="d-flex flex-stack mb-2">
                                         <label class="form-label fw-bolder text-dark fs-6 mb-0">{{ __('password') }}</label>
                                         <a href="{{ route('password.request') }}" class="link-success fs-6 fw-bolder">{{ __('forgetpass') }}?</a>
                                     </div>
-                                    <input maxlength="30" class="form-control form-control-lg form-control-solid" type="password" name="password" value="admin" autocomplete="current-password" placeholder="{{ __('password') }}"/>
+                                    <input maxlength="30" class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="current-password" placeholder="{{ __('password') }}"/>
                                     
                                 </div>
                                 <div  type="submit" id="login_submit" class="text-center">
@@ -63,15 +59,13 @@
                             </form>
                         </div>
                     </div>
-                    <?php //include('modals/help.php');?>
                     <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                         <div class="d-flex flex-center fw-bold fs-6">
-                            <!-- <a href="#" class="text-muted text-hover-success px-2" data-bs-toggle="modal" data-bs-target="#kt_modal_help">Help</a> -->
                         </div>
                     </div>
                     <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                         <div class="d-flex flex-center fw-bold fs-6">
-                            <a class="text-muted text-hover-success px-2">&copy;<?php echo '2023';?></span> <?php echo 'Sig-Recettes'?>.</a>
+                            <a class="text-muted text-hover-success px-2">&copy;<?php echo '2023';?></span> {{ config('app.name') }}</a>
                             <a href="#" class="text-muted text-hover-success px-2" data-bs-toggle="modal" data-bs-target="#kt_modal_help"></a>
                         </div>
                     </div>
@@ -123,21 +117,6 @@
                     })
                 }
             });
-            // ---------------------------------
-            // progressContainer = document.createElement("div");
-            // progressLabel = document.createElement("span");
-            // progressBar = document.createElement("span");
-
-            // // Set attributes and classes for progress elements
-            // progressContainer.classList.add("indicator-progress");
-            // progressLabel.classList.add("indicator-label");
-            // progressBar.classList.add("spinner-border", "spinner-border-sm", "align-middle", "ms-2");
-
-            // // Append progress elements to the button
-            // progressContainer.appendChild(progressLabel);
-            // progressContainer.appendChild(progressBar);
-            // e.appendChild(progressContainer);
-            // ---------------------------------
 
             e.addEventListener("click", (function (event) {
                 //event.preventDefault();
@@ -145,13 +124,6 @@
                     if ("Valid" == validationResult) {
                         e.setAttribute("data-kt-indicator", "on");
                         e.disabled = true;
-// -----------------------------
-                        // // Show progress elements
-                        // progressLabel.innerHTML = "Please wait...";
-                        // progressBar.style.display = "inline-block";
-// --------------------------------------
-                        // Perform login using Fetch
-                        
                     }
                 }));
             }));

@@ -53,13 +53,16 @@
     "back" : "Retour",
     "all_fields_marked" : "Tous les champs marqués",
     "is_mandatory" : "est Obligatoire.",
-
-
-
-    "Remember me" : "Se souvenir de moi",
+    "remember_me" : "Se souvenir de moi",
     "documentation" : "La documentation",
-    "password reset" : "Réinitialiser le mot de passe",
-    "Remeber? Login" : "Se souviens? Se connecter"
+    "password_reset" : "Réinitialiser le mot de passe",
+    "remeber_login" : "Se souviens? Se connecter",
+    "confirm" : "Confirm",
+    "logout" : "Logout",
+    "email" : "Email",
+    "new_payer" : "Nouveau Payeur",
+    "new_account" : "Nouveau Compte",
+    "delete_account" : "Delete Account"
 
 
 }

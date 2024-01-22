@@ -216,7 +216,7 @@
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="fv-row mb-10">
-                                                <input maxlength="30" class="form-control form-control-lg form-control-solid" type="phone" name="phone" value="{{ old('phone') }}" autocomplete="off" disabled placeholder="{{ __('phone') }}" />
+                                                <input maxlength="30" class="form-control form-control-lg form-control-solid" type="phone" name="phone" value="{{ old('name', $user->Telephone) }}" autocomplete="off" disabled placeholder="{{ __('Telephone') }}" />
                                                 <!-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
                                             </div>
 											<!--end::Col-->
@@ -267,9 +267,9 @@
 											</div>
 										</div> -->
 
-                                        <div  type="submit" id="login_submit" class="text-center">
+                                        <div  type="submit" id="login_submit" class="text-center col-md-2">
                                             <button class="btn btn-lg btn-success w-100 mb-5">
-                                                <span class="indicator-label">{{ __('Save') }}</span>
+                                                <span class="indicator-label">{{ __('Submit') }}</span>
                                                 <span class="indicator-progress">{{ __('wait') }}
                                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                             </button>
@@ -332,9 +332,9 @@
                                             </div>
 										</div>
 
-                                        <div  type="submit" id="login_submit" class="text-center">
+                                        <div  type="submit" id="login_submit" class="text-center col-md-2">
                                             <button class="btn btn-lg btn-success w-100 mb-5">
-                                                <span class="indicator-label">{{ __('Save') }}</span>
+                                                <span class="indicator-label">{{ __('Update') }}</span>
                                                 <span class="indicator-progress">{{ __('wait') }}
                                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                             </button>
@@ -351,25 +351,25 @@
 									</div>
 								</div>
                                 </form>
-
                                 
 								<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
 									<!--begin::Card header-->
 									<div class="card-header cursor-pointer">
 										<!--begin::Card title-->
                                         <h3 class="card-title align-items-start flex-column">
-                                            <span class="card-label fw-bolder text-dark">{{ __('Are you sure you want to delete your account?') }}</span>
+                                            <span class="card-label fw-bolder text-dark">
+                                            		{{ __('Are you sure you want to delete your account?') }}
+                                        	</span>
                                             <span class="text-gray-400 pt-2 fw-bold fs-6">{{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}</span>
                                         </h3>
-										
-										<!-- <a href="#" class="btn btn-success align-self-center">Edit Profile</a> -->
+										<br>
+
 									</div>
-                                    
-									<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#kt_modal_create_account">{{ __('add_payer') }}</button>
 
 								</div>
+										<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#kt_modal_create_account">{{ __('delete_account') }}</button>
 							</div>
-							<!--end::Container-->
+							
 						</div>
 						<!--end::Post-->
                    </div>
